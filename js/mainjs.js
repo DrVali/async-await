@@ -1,4 +1,4 @@
-
+let contery = "iran";
 const getCountery = async function name(countryName) {
   try {
     const response = await fetch(
@@ -30,12 +30,18 @@ const getCountery = async function name(countryName) {
     spancapital.innerHTML = `capital: ${data[0].capital} </br>`;
     mainDiv.append(spancapital);
   } catch (err) {
-    console.log(`error message is :====>   ${err.message} </br>`);
+    alert(`error message is :====>   ${err.message} </br>`);
   }
 };
 let germanyC = "germany";
 const germany = document.querySelector(".germany");
 germany.addEventListener("click", (e) => {
+  let RegionEl = e.target.value;
+  getCountery(RegionEl);
+});
+
+const dswBtn = document.querySelector(".dfwwsewv");
+dswBtn.addEventListener("click", (e) => {
   let RegionEl = e.target.value;
   getCountery(RegionEl);
 });
