@@ -5,7 +5,7 @@ const getCountery = async function name(countryName) {
     const response = await fetch(
       `https://restcountries.com/v3.1/name/${countryName}`
     );
-    if (!response.ok) throw new Error("request faild");
+    if (!response.ok) throw new Error("can not find this countery");
     const data = await response.json();
     console.log(data[0]);
 
