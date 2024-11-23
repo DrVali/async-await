@@ -1,9 +1,11 @@
+"use strict";
 let contery = "iran";
 const getCountery = async function name(countryName) {
   try {
     const response = await fetch(
       `https://restcountries.com/v3.1/name/${countryName}`
     );
+    if (!response.ok) throw new Error("request faild");
     const data = await response.json();
     console.log(data[0]);
 
@@ -25,12 +27,12 @@ const getCountery = async function name(countryName) {
     spanRegion.innerHTML = `region:  ${data[0].region} </br>`;
     mainDiv.append(spanRegion);
 
-    const spancapital = document.createElement("span");
-    spancapital.classList.add("capital");
-    spancapital.innerHTML = `capital: ${data[0].capital} </br>`;
-    mainDiv.append(spancapital);
+    const spanCapital = document.createElement("span");
+    spanCapital.classList.add("capital");
+    spanCapital.innerHTML = `capital: ${data[0].capital} </br>`;
+    mainDiv.append(spanCapital);
   } catch (err) {
-    alert(`error message is :====>   ${err.message} </br>`);
+    alert(`Error Fetching data :====>   ${err.message} </br>`);
   }
 };
 let germanyC = "germany";
